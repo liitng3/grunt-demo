@@ -1,22 +1,4 @@
-// $(function(){
-//     var $width=$('#width'),
-//         $height=$('#height'),
-//         $btnCal=$('#calculate'),
-//         $perimater=$('#perimater'),
-//         $area=$('#area');
 
-//     $btnCal.click(function(){
-//         console.log($width.val())
-//         var w=Number($width.val()),
-//             h=Number($height.val());
-
-//         var p=2*(w+h),
-//             a=w*h;
-
-//         $perimater.val(p);
-//         $area.val(a);
-//     })
-// })
 
 $(function(){
     var $width=$('#width'),
