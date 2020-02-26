@@ -1,5 +1,4 @@
-
-
+/*global $:true*/
 $(function(){
     var $width=$('#width'),
         $height=$('#height'),
@@ -14,13 +13,15 @@ $(function(){
         var hlen;
         var a;
         var p;
+        var differ;
+        var max;
         try {
-            wlen =w.toString().split(".")[1].length;
+            wlen =w.toString().split('.')[1].length;
         } catch (e) {
             wlen = 0;
         }
         try {
-            hlen =h.toString().split(".")[1].length;
+            hlen =h.toString().split('.')[1].length;
         } catch (e) {
             hlen = 0;
         }
@@ -29,18 +30,18 @@ $(function(){
         if (differ > 0) { 
             var multiple = Math.pow(10, differ);
             if (wlen > hlen) {     
-                w = Number(w.toString().replace(".", "")); 
-                h = Number(h.toString().replace(".", "")) * multiple;
+                w = Number(w.toString().replace('.', '')); 
+                h = Number(h.toString().replace('.', '')) * multiple;
             } else {
-                w = Number(w.toString().replace(".", "")) * multiple;
-                h = Number(h.toString().replace(".", ""));
+                w = Number(w.toString().replace('.', '')) * multiple;
+                h = Number(h.toString().replace('.', ''));
             }
-            console.log(w,h)
+            console.log(w,h);
             a=(w*h)/multiple/Math.pow(10,wlen)/Math.pow(10,hlen);
-            console.log(a)
+            console.log(a);
         } else {
-            w = Number(w.toString().replace(".", ""));
-            h = Number(h.toString().replace(".", ""));
+            w = Number(w.toString().replace('.', ''));
+            h = Number(h.toString().replace('.', ''));
             a=(w*h)/max/max;
         }
         
@@ -49,8 +50,8 @@ $(function(){
 
         $perimater.val(p);
         $area.val(a);
-    })
-})
+    });
+});
 
 
 
