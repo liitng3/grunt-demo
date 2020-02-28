@@ -1,36 +1,34 @@
 module.exports = function (grunt) {
-    grunt.initConfig({
-      mochacli: {
+  grunt.initConfig({
+    mochacli: {
+      options: {
+        reporter: 'spec',
+        bail: true
+      },
+      all: ['test/*.js']
+    },
+    mocha_istanbul: {
+      coverage: {
+        src: 'test'
+      }
+    },
+    istanbul_check_coverage: {
+      default: {
         options: {
-          reporter: 'spec',
-          bail: true
-        },
-        all: ['test/*.js']
-      },
-      // 测覆盖率
-      mocha_istanbul: {
-        coverage: {
-          src: 'test'
-        }
-      },
-      istanbul_check_coverage: {
-        default: {
-          options: {
-            coverageFolder: 'coverage*',
-            check: {
-              lines: 90,
-              statements: 90
-            }
+          coverageFolder: 'coverage*',
+          check: {
+            lines: 90,
+            statements: 90
           }
         }
       }
-    });
-  
-    grunt.loadNpmTasks('grunt-mocha-cli');
-    grunt.loadNpmTasks('grunt-mocha-istanbul');
-  
-    grunt.registerTask('default', ['mochacli']);
-    // 测覆盖率的  
-    grunt.registerTask('cover', ['mocha_istanbul']);
-    grunt.registerTask('check-cover', ['istanbul_check_coverage']);
-  };
+    }
+  });
+
+  grunt.loadNpmTasks('grunt-mocha-cli');
+  grunt.loadNpmTasks('grunt-mocha-istanbul');
+
+  grunt.registerTask('default', ['mochacli']);
+  grunt.registerTask('cover', ['mocha_istanbul']);
+  grunt.registerTask('cover-check', ['istanbul_check_coverage']);
+};
