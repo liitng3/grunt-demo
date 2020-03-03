@@ -1,11 +1,15 @@
 module.exports = function (grunt) {
   grunt.initConfig({
-    cssmin: {  
-      'rectangle.min.css': 'rectangle.css'
+    uglify: {
+      release:{
+        files: {
+          'index.min.js': 'index.js'
+        }
+      }       
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['cssmin']); 
+  grunt.registerTask('default', ['uglify:release']);
 };
